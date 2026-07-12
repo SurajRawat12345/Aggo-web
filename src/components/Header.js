@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowDownToLine } from 'lucide-react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,29 +20,29 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-linear-to-r from-lime-50 to-green-50 border-b border-green-100 shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-bottom-border shadow-sm bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center gap-2">
-            <div className="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-lg">A</span>
             </div>
             <div>
-              <p className="font-bold text-green-700 text-lg">AGGO</p>
-              <p className="text-xs text-green-600 -mt-1">
+              <p className="font-bold text-primary text-lg">AGGO</p>
+              <p className="text-xs text-secondary -mt-1">
                 Connecting Agriculture. Building Future.
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden min-[1050px]:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-green-700 hover:bg-green-100 rounded-md transition-colors duration-200"
+                className="px-4 py-2 text-sm font-medium text-link hover:text-link-hover hover:bg-link-hover-background rounded-md transition-colors duration-200"
               >
                 {link.label}
               </Link>
@@ -50,16 +50,16 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTA Button */}
-          <div className="hidden md:flex items-center">
-            <button className="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-6 py-2.5 rounded-full font-semibold transition-colors duration-200 shadow-md">
-              <span>↓</span>
+          <div className="hidden min-[1050px]:flex items-center">
+            <button className="flex items-center gap-2 bg-button-primary-background hover:bg-button-primary-background-hover text-button-primary px-6 py-2.5 rounded-full font-semibold transition-colors duration-200 shadow-md cursor-pointer">
+              <ArrowDownToLine />
               Download App
             </button>
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-green-100 focus:outline-none transition-colors duration-200"
+            className="min-[1050px]:hidden inline-flex items-center justify-center p-2 rounded-md text-black hover:bg-link-hover-background focus:outline-none transition-colors duration-200"
             onClick={toggleMenu}
             aria-expanded="false"
           >
@@ -75,19 +75,19 @@ export default function Header() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <nav className="md:hidden bg-white border-t border-green-100">
+        <nav className="min-[1050px]:hidden bg-white border-t border-bottom-border">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-100 transition-colors duration-200"
+                className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-link-hover hover:bg-link-hover-background transition-colors duration-200"
               >
                 {link.label}
               </Link>
             ))}
-            <button className="w-full mt-4 flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2.5 rounded-full font-semibold transition-colors duration-200">
-              <span>↓</span>
+            <button className="w-full mt-4 flex items-center justify-center gap-2 bg-button-primary-background hover:bg-button-primary-background-hover text-white px-4 py-2.5 rounded-full font-semibold transition-colors duration-200 cursor-pointer">
+              <ArrowDownToLine />
               Download App
             </button>
           </div>
@@ -96,14 +96,3 @@ export default function Header() {
     </header>
   );
 }
-
-
-// const Header = () => {
-//   return (
-//     <div className="bg-red-500">
-//       Header 
-//     </div>
-//   )
-// }
-
-// export default Header
