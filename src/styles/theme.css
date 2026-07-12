@@ -1,0 +1,13 @@
+@theme {
+  --color-primary: #15803d; /* For Text */
+  --color-secondary: #16a34a; /* For Text */
+  --color-link: #16a34a; /* color-green-600*/
+  --color-link-hover: #15803d; /* color-green-700*/
+  --color-link-hover-background: #dcfce7; /* color-green-100 */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-bottom-border: #dcfce7; /* color-green-100 */
+  --color-button-primary: #ffffff;
+  --color-button-primary-background: #16a34a; /* color-green-600*/
+  --color-button-primary-background-hover: #15803d; /* color-green-700*/
+}
