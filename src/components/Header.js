@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, ArrowDownToLine } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X, ArrowDownToLine, ScanQrCode } from 'lucide-react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,19 +26,19 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">A</span>
-            </div>
-            <div>
-              <p className="font-bold text-primary text-lg">AGGO</p>
-              <p className="text-xs text-secondary -mt-1">
-                Connecting Agriculture. Building Future.
-              </p>
+            <div className="flex items-center justify-center">
+              <Image
+                src="/images/logo.png"
+                alt="Logo"
+                className="object-contain"
+                width={80}
+                height={80}
+              />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden min-[1050px]:flex items-center gap-1">
+          <nav className="hidden min-[950px]:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -50,49 +51,84 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTA Button */}
-          <div className="hidden min-[1050px]:flex items-center">
+          <div className="hidden min-[950px]:flex items-center gap-2">
             <button className="flex items-center gap-2 bg-button-primary-background hover:bg-button-primary-background-hover text-button-primary px-6 py-2.5 rounded-full font-semibold transition-colors duration-200 shadow-md cursor-pointer">
-              <ArrowDownToLine />
-              Download App
+              <Link href="https://play.google.com/store/apps/details?id=aggo.org" target="_blank" className="flex items-center gap-2">
+                <ArrowDownToLine />
+                Download App
+              </Link>
             </button>
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="min-[1050px]:hidden inline-flex items-center justify-center p-2 rounded-md text-black hover:bg-link-hover-background focus:outline-none transition-colors duration-200"
+            className="relative min-[950px]:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-black hover:bg-link-hover-background focus:outline-none transition-colors duration-200 cursor-pointer"
             onClick={toggleMenu}
-            aria-expanded="false"
+            aria-expanded={isOpen}
           >
             <span className="sr-only">Open main menu</span>
-            {isOpen ? (
-              <X className="block h-6 w-6" />
-            ) : (
-              <Menu className="block h-6 w-6" />
-            )}
+
+            {/* Hamburger Icon */}
+            <Menu
+                className={`absolute h-6 w-6 transition-all duration-300 ease-in-out ${
+                    isOpen
+                        ? "rotate-90 scale-0 opacity-0"
+                        : "rotate-0 scale-100 opacity-100"
+                }`}
+            />
+
+            {/* Close Icon */}
+            <X
+                className={`absolute h-6 w-6 transition-all duration-300 ease-in-out ${
+                    isOpen
+                        ? "rotate-0 scale-100 opacity-100"
+                        : "-rotate-90 scale-0 opacity-0"
+                }`}
+            />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <nav className="min-[1050px]:hidden bg-white border-t border-bottom-border">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-link-hover hover:bg-link-hover-background transition-colors duration-200"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <button className="w-full mt-4 flex items-center justify-center gap-2 bg-button-primary-background hover:bg-button-primary-background-hover text-white px-4 py-2.5 rounded-full font-semibold transition-colors duration-200 cursor-pointer">
-              <ArrowDownToLine />
-              Download App
-            </button>
-          </div>
-        </nav>
-      )}
+      {/* Mobile Menu Overlay */}
+      <div
+          className={`fixed top-20 left-0 right-0 bottom-0 z-40 min-[950px]:hidden transition-all duration-300 ${
+              isOpen ? "visible opacity-100" : "invisible opacity-0"
+          }`}
+          onClick={() => setIsOpen(false)}
+      >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/40" />
+
+          {/* Sidebar */}
+          <nav
+              onClick={(e) => e.stopPropagation()}
+              className={`absolute top-0 right-0 h-full w-full bg-white shadow-xl transition-transform duration-300 ease-in-out ${
+                  isOpen ? "translate-x-0" : "translate-x-full"
+              }`}
+          >
+              <div className="p-4 space-y-2">
+                  {navLinks.map((link) => (
+                      <Link
+                          key={link.label}
+                          href={link.href}
+                          onClick={() => setIsOpen(false)}
+                          className="block rounded-md px-4 py-3 text-base font-medium text-black transition hover:bg-link-hover-background hover:text-link-hover"
+                      >
+                          {link.label}
+                      </Link>
+                  ))}
+
+                  <Link
+                      href="https://play.google.com/store/apps/details?id=aggo.org"
+                      target="_blank"
+                      className="mt-5 flex items-center justify-center gap-2 rounded-full bg-button-primary-background px-4 py-3 font-semibold text-button-primary transition hover:bg-button-primary-background-hover"
+                  >
+                      <ArrowDownToLine />
+                      Download App
+                  </Link>
+              </div>
+          </nav>
+      </div>
     </header>
   );
 }
