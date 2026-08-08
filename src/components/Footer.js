@@ -1,184 +1,177 @@
-'use client';
+"use client";
 
-import { Leaf, Users, Handshake, Tractor, MapPin } from 'lucide-react';
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faXTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
-  const stats = [
-    {
-      icon: Users,
-      number: '50K+',
-      label: 'सहयुग उपभोक्ता',
-      engLabel: 'Active Users',
-    },
-    {
-      icon: Handshake,
-      number: '10K+',
-      label: 'सहभागी किसान',
-      engLabel: 'Farmers',
-    },
-    {
-      icon: Tractor,
-      number: '5K+',
-      label: 'मशीनरी लिस्टिंग',
-      engLabel: 'Machinery',
-    },
-    {
-      icon: MapPin,
-      number: '15K+',
-      label: 'भूमि लिस्टिंग',
-      engLabel: 'Lands',
-    },
-  ];
-
   return (
-    <footer className="bg-gradient-to-b from-green-800 to-green-900 text-white relative">
-      {/* Decorative leaf */}
-      <div className="absolute bottom-0 right-0 opacity-10 pointer-events-none">
-        <Leaf className="w-48 h-48 text-white" strokeWidth={0.5} fill="white" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Stats Section */}
-        <div className="mb-16">
-          <h2 className="text-center text-2xl sm:text-3xl font-bold mb-12 text-green-100">
-            AGGO के साथ जुड़कर बढ़ाएँ अपनी सफलता
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <div key={index} className="text-center">
-                  <div className="flex justify-center mb-3">
-                    <div className="bg-green-700 rounded-full p-3">
-                      <Icon className="w-8 h-8 text-green-200" />
-                    </div>
-                  </div>
-                  <p className="text-3xl sm:text-4xl font-bold text-green-100 mb-2">
-                    {stat.number}
-                  </p>
-                  <p className="text-sm text-green-200 font-medium">{stat.label}</p>
-                  <p className="text-xs text-green-300 mt-1">{stat.engLabel}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-green-700 my-8"></div>
-
-        {/* CTA Button */}
-        <div className="flex justify-center mb-12">
-          <button className="bg-green-200 hover:bg-green-100 text-green-900 px-8 py-3 rounded-full font-bold flex items-center gap-2 transition-colors duration-200 shadow-lg">
-            <span className="text-lg">→</span>
-            AGGO - किसानों की प्रगति, हमारा संकल्प
-          </button>
-        </div>
-
-        {/* Footer Links and Info */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-green-700">
+    <footer className="bg-[#23252E] text-white">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr_1fr] gap-12">
+          {/* Left */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-green-100">About</h3>
-            <ul className="space-y-2 text-sm text-green-200">
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  About AGGO
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Our Mission
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
+            <h3 className="text-3xl font-bold text-green-400 mb-4">AGGO</h3>
+
+            <p className="text-gray-300 leading-8">
+              AGGO is your trusted digital agriculture platform that connects
+              farmers, buyers, equipment owners, and agricultural businesses.
+              Rent farming equipment, buy quality products, explore land
+              listings, and grow your farming business with confidence.
+            </p>
+
+            <div className="flex items-center gap-6 mt-4">
+              <Link
+                href="#"
+                className="transform transition-all duration-300 hover:scale-110 hover:text-[#1877F2]"
+              >
+                <FontAwesomeIcon icon={faFacebook} className="text-3xl" />
+              </Link>
+
+              <Link
+                href="#"
+                className="transform transition-all duration-300 hover:scale-110 hover:text-[#E4405F]"
+              >
+                <FontAwesomeIcon icon={faInstagram} className="text-3xl" />
+              </Link>
+
+              <Link
+                href="#"
+                className="transform transition-all duration-300 hover:scale-110 hover:text-black"
+              >
+                <FontAwesomeIcon icon={faXTwitter} className="text-3xl" />
+              </Link>
+
+              <Link
+                href="#"
+                className="transform transition-all duration-300 hover:scale-110 hover:text-[#0A66C2]"
+              >
+                <FontAwesomeIcon icon={faLinkedin} className="text-3xl" />
+              </Link>
+
+              <Link
+                href="#"
+                className="transform transition-all duration-300 hover:scale-110 hover:text-[#EA4335]"
+              >
+                <FontAwesomeIcon icon={faEnvelope} className="text-3xl" />
+              </Link>
+            </div>
+
+            <p className="mt-8 text-gray-400">
+              © 2026 AGGO. All Rights Reserved.
+            </p>
           </div>
 
+          {/* Middle */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-green-100">Services</h3>
-            <ul className="space-y-2 text-sm text-green-200">
+            <h4 className="text-xl font-semibold mb-6">Quick Links</h4>
+
+            <ul className="space-y-4 text-gray-300">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <Link href="/" className="hover:text-green-400 transition">
+                  Home
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/equipment"
+                  className="hover:text-green-400 transition"
+                >
                   Equipment
-                </a>
+                </Link>
               </li>
+
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Shopper
-                </a>
+                <Link
+                  href="/marketplace"
+                  className="hover:text-green-400 transition"
+                >
+                  Marketplace
+                </Link>
               </li>
+
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <Link href="/lands" className="hover:text-green-400 transition">
                   Lands
-                </a>
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/shops" className="hover:text-green-400 transition">
+                  Shops
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-green-400 transition"
+                >
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
 
+          {/* Right */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-green-100">Follow Us</h3>
-            <ul className="space-y-2 text-sm text-green-200">
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Twitter
-                </a>
-              </li>
-            </ul>
-          </div>
+            <h4 className="text-xl font-semibold mb-6">Support</h4>
 
-          <div>
-            <h3 className="font-bold text-lg mb-4 text-green-100">Legal</h3>
-            <ul className="space-y-2 text-sm text-green-200">
+            <ul className="space-y-4 text-gray-300">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <Link href="/about" className="hover:text-green-400 transition">
+                  About Us
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="hover:text-green-400 transition"
+                >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
+
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <Link href="/terms" className="hover:text-green-400 transition">
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
+
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Cookie Policy
-                </a>
+                <Link href="/faq" className="hover:text-green-400 transition">
+                  FAQs
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="#"
+                  className="flex items-center gap-2 hover:text-green-400 transition"
+                >
+                  <FontAwesomeIcon icon={faEnvelope} size={18} />
+                  support@aggo.com
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-green-700 text-center text-sm text-green-300">
-          <p>&copy; 2026 AGGO. All rights reserved. Connecting Agriculture. Building Future.</p>
+        {/* Bottom */}
+        <div className="border-t border-gray-700 mt-12 pt-8">
+          <p className="text-gray-400 text-sm text-center">
+            Empowering Farmers With Technology 🌱
+          </p>
         </div>
       </div>
     </footer>
   );
 }
-
-
-
-// const Footer = () => {
-//   return (
-//     <div className="bg-blue-700 p-4">
-//       Footer
-//     </div>
-//   )
-// }
-
-// export default Footer
