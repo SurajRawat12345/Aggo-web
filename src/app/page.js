@@ -9,7 +9,7 @@ export default function Home() {
       <Header />
 
       {/* Main Content */}
-      <main className="flex-grow">
+      <main className="grow">
         <HeroSection />
         <ProductShowcase />
       </main>
