@@ -2,7 +2,8 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/Hero";
-import ProductShowcase from "@/components/product-showcase";
+import Services from "@/components/Services";
+import MobileSection from "@/components/MobileSection";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -11,7 +12,8 @@ export default function Home() {
       {/* Main Content */}
       <main className="grow">
         <HeroSection />
-        <ProductShowcase />
+        <MobileSection />
+        <Services />
       </main>
 
       <Footer />
