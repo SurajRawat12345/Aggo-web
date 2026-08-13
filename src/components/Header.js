@@ -113,7 +113,7 @@ export default function Header() {
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="p-4 space-y-2">
+          <div className="p-4 space-y-2 text-center">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
