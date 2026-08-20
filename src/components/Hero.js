@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-white/20"></div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto grid min-h-100 max-w-7xl grid-cols-1 items-center gap-8 px-6 pt-7 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-40px)] md:min-h-100 max-w-7xl grid-cols-1 items-center gap-8 px-6 pt-7 lg:pt-11 lg:grid-cols-2">
         {/* Left - Text */}
         <div className="max-w-full justify-self-center lg:max-w-xl mb-8">
           <p className="mb-3 flex items-center gap-2 text-lg font-semibold text-green-700">
