@@ -24,22 +24,22 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-bottom-border shadow-sm bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center gap-2">
             <div className="flex items-center justify-center">
               <Image
                 src="/images/logo.png"
                 alt="Logo"
-                className="object-contain"
-                width={60}
-                height={60}
+                className="object-contain w-10 h-10 md:w-12 md:h-12"
+                width={48}
+                height={48}
               />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden min-[950px]:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -52,12 +52,12 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTA Button */}
-          <div className="hidden min-[950px]:flex items-center gap-2">
+          <div className="hidden lg:flex items-center">
             <button className="flex items-center gap-2 bg-button-primary-background hover:bg-button-primary-background-hover text-button-primary px-6 py-2.5 rounded-full font-semibold transition-colors duration-200 shadow-md cursor-pointer">
               <Link
                 href="https://play.google.com/store/apps/details?id=aggo.org"
                 target="_blank"
-                className="flex items-center gap-2"
+                className="flex items-center gap-1"
               >
                 <FontAwesomeIcon icon={faArrowDown} />
                 Download App
@@ -67,7 +67,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="relative min-[950px]:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-black hover:bg-link-hover-background focus:outline-none transition-colors duration-200 cursor-pointer"
+            className="relative lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-black hover:bg-link-hover-background focus:outline-none transition-colors duration-200 cursor-pointer"
             onClick={toggleMenu}
             aria-expanded={isOpen}
           >
@@ -98,7 +98,7 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed top-20 left-0 right-0 bottom-0 z-40 min-[950px]:hidden transition-all duration-300 ${
+        className={`fixed top-14 md:top-16 left-0 right-0 bottom-0 z-40 lg:hidden transition-all duration-300 ${
           isOpen ? "visible opacity-100" : "invisible opacity-0"
         }`}
         onClick={() => setIsOpen(false)}
