@@ -49,7 +49,7 @@ export default function ProductShowcase() {
   ];
 
   return (
-    <section className="bg-white py-8 sm:py-12">
+    <section className="bg-white py-8 sm:py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-green-800 mb-4">
           AGGO's Core Services
