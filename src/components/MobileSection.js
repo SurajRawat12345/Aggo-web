@@ -1,5 +1,8 @@
 "use client";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTractor } from "@fortawesome/free-solid-svg-icons";
+
 export default function Hero() {
   return (
     <section className="">
@@ -35,6 +38,20 @@ export default function Hero() {
               />
             </div>
           </div>
+        </div>
+
+        <div className="w-full h-40 overflow-hidden relative bg-white">
+          <div className="absolute bottom-0 w-full h-20 bg-amber-600">
+            <div className="absolute top-3 w-full border-t-4 border-amber-800" />
+            <div className="absolute top-10 w-full border-t-4 border-amber-800" />
+            <div className="absolute top-16 w-full border-t-4 border-amber-800" />
+          </div>
+
+          <img
+            src="/images/tractor.png"
+            className="h-20 tractor-animation absolute bottom-16 z-10"
+            alt="tractor"
+          />
         </div>
       </div>
     </section>
